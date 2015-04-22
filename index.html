@@ -1,0 +1,46 @@
+---
+title: Mepuka Kessy
+---
+
+<html class="mepuka-com">
+
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <style type="text/css">
+            @import url(/css/home.css);
+        </style>
+    </head>
+    
+    <body>
+
+    <div class="home-graphic">
+        <div class="container">
+            <object data="/img/home_graphic.svg" type="image/svg+xml"></object>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="banner">
+            <object data="/img/banner.svg" type="image/svg+xml"></object>
+        </div>
+        <div class="recent-posts">
+            {% for post in site.posts limit:3 %}
+            <div class="post">
+                <div class="post-container">
+                    <div class="post-date">{{ post.date | date:"%-d %B %Y" }}</div>
+                    <div class="post-title">
+                        <a href={{ post.url }}>{{ post.title }}</a>
+                    </div>
+                    <br float="clear">
+                </div>
+                <div class="post-tags">
+                    <p> {{ post.tags | join: ', ' }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br clear="all">
+    </body>
+
+</html>

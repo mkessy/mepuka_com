@@ -1,0 +1,26 @@
+<html class="mepuka-com">
+    <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <style>
+        @import url(/css/style.css);
+    </style>
+
+
+    <body>
+
+    <header>
+        {% include header.html %}
+    </header>
+
+    <!-- main page content -->
+    {{ content }}
+    <!-- end main page content -->
+
+    <footer>
+        {% include footer.html %}
+    </footer>
+    </body>
+
+</html>
+

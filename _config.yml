@@ -1,0 +1,12 @@
+name: Mepuka Kessy
+description: The Personal Website of Mepuka Kessy
+
+url: "http://localhost:4000"
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty
+pygments: true
+exclude: img/banner.html img/shp img/kili.json img/chi.png
+
