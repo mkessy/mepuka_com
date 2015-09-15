@@ -8,30 +8,62 @@ path {
     stroke-linecap: round;
 }
 
+/* top of the page, name and nav bar */
+ h1.name {
+  /*margin: auto;*/
+  text-align: center;
+ }
+
+div.name-container {
+    margin: 0px 0px 0px 0px;
+}
+
+div.nav-bar {
+  display:                 flex;
+  display:                 -webkit-flex; /* Safari */
+  flex-wrap:               wrap;
+  -webkit-flex-wrap:       wrap;         /* Safari */
+  justify-content:         center;
+  -webkit-justify-content: center;       /* Safari */
+}
+
+div.nav-item {
+  padding: 0px 10px 0px 10px;
+}
+
+div h3 {
+  text-align: center;
+}
+
 
 div.home-graphic {
     width: 350px;
-    float: left;
+    /*float: left;*/
     /*border: 1px solid black;*/
 }
 
-.home-graphic div {
-    margin: 10px 20px 10px 0px;
-    /*border: 1px solid black;*/
-}
 
-div.gallery  {
-    float: left;
-    width: 605px;
+
+div.gallery-middle {
+    /*float: left;*/
+    /*width: 605px;*/
     /*border: 1px solid black;*/
 }
 
 div.banner {
-    margin: 30px 0px 0px 0px;
+    margin: auto;
+    width: 100%;
+    /*margin: 30px 0px 0px 0px;*/
     height: 250px;
-    width:  605px;
+    /*width:  605px; */
     border-bottom: 1px dashed white;
+    border-top: 1px dashed white;
 /*    border: 1px solid black;*/
+}
+
+div.banner-img {
+    margin: auto;
+    width: 60%;
 }
 
 div.recent-posts {
@@ -63,6 +95,7 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+
 .mepuka-com h1,
 .mepuka-com h2,
 .mepuka-com h3,
@@ -74,6 +107,12 @@ html {
 .mepuka-com footer {
   color: #636363;
 }
+
+h1.name {
+  font-family: "Lora", serif;
+  color: #fcfcfc;
+}
+
 
 h1 {
   font-size: 64px;
@@ -169,6 +208,7 @@ a:not(:hover) {
   text-decoration: none;
 }
 
+
 /* home page recent post list */
 .recent-posts {
     margin-bottom: 15px;
@@ -177,17 +217,24 @@ a:not(:hover) {
     font: 12px "Open Sans";
     width: 120px;
     margin-right: 50px;
-    float: left;
-}
+    }
 
 .post .post-container {
-}
+  /*position: relative;
+  height: 30px;*/
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;
+  -webkit-align-items: center;  
+  align-items: center;
+  }
 
 .post .post-title {
-    font-size: 20px;
-    width: 420px;
-    float: left;
-}
+    font-size: 24px;
+    /*width: 420px;*/
+    }
 .post .post-tags {
     font-size: 12px;
     font-style: oblique;

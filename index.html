@@ -14,14 +14,22 @@ title: Mepuka Kessy
     
     <body>
 
-    <div class="home-graphic">
-        <div class="container">
-            <object data="/img/home_graphic.svg" type="image/svg+xml"></object>
+    <div class="gallery-top">
+        <div class="name-container">
+            <h1 class="name">Mepuka Kessy</h1>
         </div>
+        <div class="nav-bar">
+            <div class="nav-item nav1"><h3>About</h3></div>
+            <div class="nav-item nav2"><h3>Blog</h3></div>
+            <br clear="all">
+        </div>
+
     </div>
-    <div class="gallery">
+    <div class="gallery-middle">
         <div class="banner">
+            <div class="banner-img">
             <object data="/img/banner.svg" type="image/svg+xml"></object>
+        </div>
         </div>
         <div class="recent-posts">
             {% for post in site.posts limit:3 %}
@@ -31,7 +39,7 @@ title: Mepuka Kessy
                     <div class="post-title">
                         <a href={{ post.url }}>{{ post.title }}</a>
                     </div>
-                    <br float="clear">
+                    
                 </div>
                 <div class="post-tags">
                     <p> {{ post.tags | join: ', ' }}</p>
@@ -40,7 +48,6 @@ title: Mepuka Kessy
             {% endfor %}
         </div>
     </div>
-    <br clear="all">
-    </body>
+        </body>
 
 </html>
