@@ -59,11 +59,21 @@ div.banner {
     border-bottom: 1px dashed white;
     border-top: 1px dashed white;
 /*    border: 1px solid black;*/
+
+}
+
+div.nav-bar-blog {
+  border-bottom: 1px dashed white;
 }
 
 div.banner-img {
     margin: auto;
     width: 60%;
+    pointer-events: none;
+}
+
+object {
+  pointer-events: none;
 }
 
 div.recent-posts {
@@ -100,7 +110,7 @@ html {
 .mepuka-com h2,
 .mepuka-com h3,
 .mepuka-com h4 {
-  color: #000;
+  color: #fcfcfc;
 }
 
 .mepuka-com header,
@@ -146,6 +156,10 @@ footer {
 .mepuka-com footer aside {
   float: left;
   margin-right: .5em;
+}
+
+.blog-footer {
+  margin-top: 50px;
 }
 
 .mepuka-com header aside:after,

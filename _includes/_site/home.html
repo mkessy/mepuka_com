@@ -1,0 +1,79 @@
+<script>
+
+(function () {
+
+    var margins = {top:20, right: 0, bottom:0, left:40};
+    var width = 350 - margins.left - margins.right;
+    var height = 542 - margins.top - margins.bottom;
+
+    var svg = d3.select(".container").append("svg")
+        .attr("width", width+margins.left+margins.right)
+        .attr("height", height+margins.top+margins.bottom)
+
+    var n = 4;
+    var capLength = 45;
+    var points = genTrianglePoints(250, capLength, n);
+    var line = d3.svg.line();
+    var labels = ["MEPUKA", "KESSY", "About", "Blog"];
+    var data = [];
+
+    for(var i=0; i<n; i++) {
+
+        data.push({label: labels[i], points: points[i], });
+    }
+
+    var triangles = svg.selectAll(".triangle")
+        .data(data)
+    .enter().append("g")
+        .attr("transform", "translate("+margins.left+","+margins.top+")")
+        .attr("class", function(d) { return "triangle "+ d.label; });
+
+    triangles.append("text")
+        .text(function(d) { return d.label; })
+            .attr("text-anchor", "middle")
+            .attr("transform", function(d) {
+                var c = centroid(d.points);
+                return "translate("+c[0]+","+c[1]+")";
+            });
+
+    console.log(triangles);
+
+    var triangleCaps = triangles.selectAll(".triangle-cap")
+        .data(function(d){ return d.points; })
+    .enter().append("path")
+        .attr("class", "triangle-cap")
+        .attr("d", line);
+
+    function genTrianglePoints(sl, cl, n) {
+        // generate points for a series of "stacked" equilateral right triangles
+        // with caps on each end
+        // sl = side length, cl = cap length, n = number of triangles
+        var points = [];
+        for(var i=0; i<n; i++) {
+
+            var tPoints = [];
+            var m = i%2===0 ? i/2 : (i+1)/2;
+            var s = i%2===0 ? 0 : 1;
+            var p = Math.pow(-1, i);
+
+            // point A
+            tPoints.push([ [s*sl+cl*p, m*sl], [s*sl, m*sl], [s*sl, m*sl+p*cl] ]);
+            // point B
+            tPoints.push([ [s*sl+sl*p+p*-cl, m*sl], [s*sl+sl*p, m*sl], [s*sl+sl*p+p*-cl, m*sl+p*cl] ]);
+            // point C
+            tPoints.push([ [s*sl, m*sl+sl*p+p*-cl], [s*sl, m*sl+sl*p], [s*sl+p*cl, m*sl+sl*p+p*-cl] ]);
+
+            points.push(tPoints);
+        }
+        return points;
+    }
+
+    function centroid(points) {
+        var x = (points[0][1][0] + points[1][1][0] + points[2][1][0])/3;
+        var y = (points[0][1][1] + points[1][1][1] + points[2][1][1])/3;
+        return [x,y];
+    }
+
+})();
+
+</script>
